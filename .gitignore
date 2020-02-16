@@ -1,0 +1,29 @@
+# Logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# MAC OS Trash
+.DS_Store
+
+# Editor data
+.lock-wscript
+
+#WebStorm
+.idea
+
+# Dependency directory
+node_modules
+
+# Cache directories
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+dist
+*.code-workspace

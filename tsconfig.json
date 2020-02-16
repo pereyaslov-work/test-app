@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "strict": true,
+    "noImplicitReturns": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "target": "es5",
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es2015",
+      "es2016.array.include",
+      "es2017.object",
+      "es2017.string",
+      "es2018.asynciterable",
+      "es2018.promise",
+      "es2019.array",
+      "es2019.object",
+      "es2019.string",
+      "es2020.string",
+      "esnext"
+    ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
