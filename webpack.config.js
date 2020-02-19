@@ -6,7 +6,6 @@ const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 const miniCssExtractPlugin = new MiniCssExtractPlugin({
   filename: '[name].[hash].css',
@@ -44,7 +43,7 @@ module.exports = (env, options) => {
           },
         },
         {
-          test: /\.css$/,
+          test: /\.css$/i,
           use: [
             styleLoader,
             'css-loader'

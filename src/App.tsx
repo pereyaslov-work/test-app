@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import Router from 'router'
 import styled from 'styled-components'
 
+import 'styles/theme.css'
 import Reset from 'styles/reset'
 
 const StyledApp = styled.div`

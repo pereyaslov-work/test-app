@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const StyledSignIn = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template: repeat(3, 50px) / auto;
+  grid-gap: 50px;
   flex: 1;
 `

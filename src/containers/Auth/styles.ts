@@ -20,12 +20,12 @@ export const RightSide = styled.div`
 `
 export const Form = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
   max-width: 500px;
   width: 50%;
-  height: 400px;
-  padding: 20px;
-  border: 1px solid rgba(0,0,0,0.4);
-  background-color: rgba(0,0,0,0.2);
+  height: 350px;
+  padding: 0 50px;
+  border: 3px solid #b0b3b3;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
 `
