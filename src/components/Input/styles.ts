@@ -8,18 +8,18 @@ export const StyledInput = styled.input<{ invalid: boolean }>`
   width: 100%;
   font-size: 1rem;
   line-height: 15px;
-  color: ${props => props.invalid ? 'var(--invalid)' : 'var(--mainFontColor)'};
-  border-color: ${props => props.invalid ? 'var(--invalid)' : 'var(--mainBorder)'};
+  color: ${props => props.invalid ? props.theme.invalid : props.theme.mainFontColor};
+  border-color: ${props => props.invalid ? props.theme.invalid : props.theme.mainBorder}};
 
   &:-webkit-input-placeholder {
-    color: var(--placeholderInputField);
+    color: ${props => props.theme.placeholderInputField};
   }
 
   &:-moz-placeholder {
-    color: var(--placeholderInputField);
+    color: ${props => props.theme.placeholderInputField};
   }
 
   &:focus {
-    border-color: ${props => props.invalid ? 'var(--invalid)' : 'var(--inputBorderFocus)'};
+    border-color: ${props => props.invalid ? props.theme.invalid : props.theme.inputBorderFocus};
   }
 `

@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react'
+import styled, { ThemeProvider } from 'styled-components'
 import Router from 'router'
-import styled from 'styled-components'
 
 import 'styles/theme.css'
 import Reset from 'styles/reset'
+import * as theme from 'styles/theme'
 
 const StyledApp = styled.div`
   display: flex;
@@ -15,12 +16,14 @@ const StyledApp = styled.div`
 
 const App = () => {
   return (
-    <StyledApp>
-      <Reset />
-      <Suspense fallback={<span>Loading</span>}>
-        <Router />
-      </Suspense>
-    </StyledApp>
+    <ThemeProvider theme={theme.light}>
+      <StyledApp>
+        <Reset />
+        <Suspense fallback={<span>Loading</span>}>
+          <Router />
+        </Suspense>
+      </StyledApp>
+    </ThemeProvider>
   )
 }
 

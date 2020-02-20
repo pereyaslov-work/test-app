@@ -1,4 +1,5 @@
 import { configure } from 'mobx'
+import SignIn from 'store/UIStores/SignIn'
 
 configure({
   computedRequiresReaction: true,
@@ -7,5 +8,7 @@ configure({
 })
 
 export default class RootStore {
+  signIn = new SignIn()
+
   constructor() {}
 }

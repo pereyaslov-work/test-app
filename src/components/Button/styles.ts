@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<{ blocked: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,6 +11,7 @@ export const StyledButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: .3s all ease;
-  color: var(--buttonFont);
-  background-color: var(--primary);
+  color: ${props => props.theme.buttonFont};
+  background-color: ${props => props.theme.primary};
+  opacity: ${props => props.blocked && '0.7'};
 `

@@ -6,22 +6,24 @@ export interface IProps {
   type?: string,
   className?: string,
   value: string,
-  valid?: boolean,
+  invalid?: boolean,
   placeholder?: string,
   focus?: boolean,
   disabled?: boolean,
   onChange: (value: string) => void,
-  onFocus?: (event: React.FocusEvent) => void
+  onFocus?: (event: React.FocusEvent) => void,
+  onBlur?: () => void
 }
 
 const Input: React.FC<IProps> = ({
   type = 'text',
   className,
   value,
-  onChange,
   placeholder = '',
-  valid = true,
+  invalid = false,
   focus = false,
+  onChange,
+  onBlur,
   onFocus,
 }) => {
   const inputElement = useRef<HTMLInputElement>(null)
@@ -46,9 +48,10 @@ const Input: React.FC<IProps> = ({
       type={type}
       placeholder={placeholder}
       value={value}
-      invalid={!valid}
+      invalid={invalid}
       onChange={handleChange}
       onFocus={onFocus}
+      onBlur={onBlur}
     />
   )
 }
