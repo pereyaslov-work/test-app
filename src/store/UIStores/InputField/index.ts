@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx'
+import { observable, action, computed } from 'mobx'
 import { ValidateCallback } from './interfaces'
 
 export default class InputField {
@@ -15,9 +15,7 @@ export default class InputField {
 
   @action
   onChange(newValue: string) {
-    if (!newValue) this.changed = false
-    else this.changed = true
-
+    this.changed = true
     this.value = newValue
 
     if (this.changed && this.blur) this.validateInput()
@@ -31,16 +29,16 @@ export default class InputField {
   }
 
   @action
-  onFocus() {
-    if (!this.value && !this.error) this.blur = false
-  }
-
-  @action
   validateInput() {
     if (this.validate) {
       this.error = this.validate(this.value)
       this.changed = true
       this.blur = true
     }
+  }
+
+  @computed
+  get valid() {
+    return this.error === null && this.changed && this.blur && !!this.value
   }
 }

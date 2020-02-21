@@ -11,11 +11,9 @@ const SignIn = observer(() => {
 
   const handlePassword = useCallback((value: string) => password.onChange(value), [])
   const handleBlurPassword = useCallback(() => password.onBlur(), [])
-  const handleFocusPassword = useCallback(() => password.onFocus(), [])
 
   const handleEmail = useCallback((value: string) => email.onChange(value), [])
   const handleBlurEmail = useCallback(() => email.onBlur(), [])
-  const handleFocusEmail = useCallback(() => email.onFocus(), [])
 
   const handleSubmit = useCallback(() => signIn.signIn(), [])
 
@@ -28,7 +26,7 @@ const SignIn = observer(() => {
         invalid={!!email.error}
         onChange={handleEmail}
         onBlur={handleBlurEmail}
-        onFocus={handleFocusEmail}
+        errorMessage={email.error || undefined}
       />
 
       <Input
@@ -38,7 +36,7 @@ const SignIn = observer(() => {
         invalid={!!password.error}
         onChange={handlePassword}
         onBlur={handleBlurPassword}
-        onFocus={handleFocusPassword}
+        errorMessage={password.error || undefined}
       />
 
       <Button

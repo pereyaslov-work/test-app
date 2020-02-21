@@ -10,23 +10,20 @@ export default class SignIn {
 
   @computed
   get valid(): boolean {
-    return !this.email.error &&
-            !!this.email.value &&
-            !this.password.error &&
-            !!this.password.value
+    return this.email.valid && this.password.valid
   }
 
   validatePassword(value: string): string | null {
     const noError = passwordRegExp.test(value)
 
-    if (!noError) return 'Invalid value'
+    if (!noError) return 'Invalid value. Password must contain 8 characters of which one is a number'
     else return null
   }
 
   validateEmail(value: string): string | null {
     const noError = emailRegExp.test(value)
 
-    if (!noError) return 'Invalid email'
+    if (!noError) return 'Invalid email. Email format: xxx@xxx.xxx'
     else return null
   }
 

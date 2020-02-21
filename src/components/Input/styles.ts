@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 export const StyledInput = styled.input<{ invalid: boolean }>`
   padding: 12px;
   border-radius: 5px;
@@ -22,4 +27,11 @@ export const StyledInput = styled.input<{ invalid: boolean }>`
   &:focus {
     border-color: ${props => props.invalid ? props.theme.invalid : props.theme.inputBorderFocus};
   }
+`
+
+export const ErrorMessage = styled.span`
+  color: ${props => props.theme.invalid};
+  font-size: 12px;
+  margin-top: 2.5px;
+  line-height: 1;
 `

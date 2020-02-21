@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useEffect, memo } from 'react'
 
-import { StyledInput } from './styles'
+import { StyledInput, ErrorMessage, Wrapper } from './styles'
 
 export interface IProps {
   type?: string,
@@ -10,6 +10,7 @@ export interface IProps {
   placeholder?: string,
   focus?: boolean,
   disabled?: boolean,
+  errorMessage?: string,
   onChange: (value: string) => void,
   onFocus?: (event: React.FocusEvent) => void,
   onBlur?: () => void
@@ -22,6 +23,7 @@ const Input: React.FC<IProps> = ({
   placeholder = '',
   invalid = false,
   focus = false,
+  errorMessage,
   onChange,
   onBlur,
   onFocus,
@@ -42,17 +44,20 @@ const Input: React.FC<IProps> = ({
   }, [])
 
   return (
-    <StyledInput
-      className={className}
-      ref={inputElement}
-      type={type}
-      placeholder={placeholder}
-      value={value}
-      invalid={invalid}
-      onChange={handleChange}
-      onFocus={onFocus}
-      onBlur={onBlur}
-    />
+    <Wrapper>
+      <StyledInput
+        className={className}
+        ref={inputElement}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        invalid={invalid}
+        onChange={handleChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
+      {!!errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+    </Wrapper>
   )
 }
 
