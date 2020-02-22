@@ -1,4 +1,5 @@
 import { configure } from 'mobx'
+import Api from 'api'
 import SignIn from 'store/UIStores/SignIn'
 
 configure({
@@ -8,7 +9,8 @@ configure({
 })
 
 export default class RootStore {
-  signIn = new SignIn()
+  signIn = new SignIn(this)
+  api = new Api()
 
   constructor() {}
 }

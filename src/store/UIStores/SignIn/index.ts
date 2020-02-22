@@ -1,4 +1,5 @@
 import { computed, action } from 'mobx'
+import RootStore from 'store/RootStore'
 import InputField from '../InputField'
 
 const passwordRegExp = /^(?=.*\d).{8,}$/
@@ -7,6 +8,12 @@ const emailRegExp = /^\S+@\S+\.\S+$/
 export default class SignIn {
   email = new InputField('', this.validateEmail)
   password = new InputField('', this.validatePassword)
+
+  rootStore: RootStore
+
+  constructor(rootStore: RootStore) {
+    this.rootStore = rootStore
+  }
 
   @computed
   get valid(): boolean {
