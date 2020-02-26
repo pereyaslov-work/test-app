@@ -9,8 +9,8 @@ configure({
 })
 
 export default class RootStore {
-  signIn = new SignIn(this)
   api = new Api()
+  signIn = new SignIn(this, this.api)
 
   constructor() {}
 }

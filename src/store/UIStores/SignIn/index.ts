@@ -1,5 +1,6 @@
 import { computed, action } from 'mobx'
 import RootStore from 'store/RootStore'
+import Api from 'api'
 import InputField from '../InputField'
 
 const passwordRegExp = /^(?=.*\d).{8,}$/
@@ -10,9 +11,11 @@ export default class SignIn {
   password = new InputField('', this.validatePassword)
 
   rootStore: RootStore
+  api: Api
 
-  constructor(rootStore: RootStore) {
+  constructor(rootStore: RootStore, api: Api) {
     this.rootStore = rootStore
+    this.api = api
   }
 
   @computed
@@ -35,10 +38,12 @@ export default class SignIn {
   }
 
   @action
-  signIn() {
+  async signIn() {
     if (!this.valid) {
       this.email.validateInput()
       this.password.validateInput()
+    } else {
+      const responseData = await this.api.auth.signIn(this.email.value, this.password.value)
     }
   }
 }
