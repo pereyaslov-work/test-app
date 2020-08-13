@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom'
 import queryString from 'query-string'
 
 export interface IQueryParams {
@@ -13,10 +12,3 @@ export const addOrSetParamsToUrl = (search: string, params: IQueryParams): strin
     ...queryString.parse(search),
     ...params
   })
-
-export const useQueryParameter = (name: string): string | string[] | null => {
-  const value = queryString.parse(useLocation().search)[name]
-
-  if (value) return value
-  else return null
-}

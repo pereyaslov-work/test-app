@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosPromise } from 'axios'
-import Authorization from './authorization'
 
 export interface IQueryPearans {
   [key: string]: string
@@ -8,8 +7,6 @@ export interface IQueryPearans {
 export default class Api {
   instance: AxiosInstance
   refreshRequst: AxiosPromise | null = null
-
-  auth = new Authorization(this)
 
   constructor() {
     this.instance = axios.create({ baseURL: 'http://localhost:3000', headers: { 'Content-Type': 'application/json' } })
@@ -44,7 +41,7 @@ export default class Api {
           headers: { ...config.headers, Autorization: `Bearer ${accessToken}` }
         }
       },
-      (error) => { throw error}
+      (error) => { throw error }
     )
   }
 
